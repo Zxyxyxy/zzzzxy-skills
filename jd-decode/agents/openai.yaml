@@ -1,0 +1,4 @@
+interface:
+  display_name: "JD 拆解与面试准备"
+  short_description: "从岗位 JD 中提取职责、要求与优先级明确的面试准备清单，并逐条回链原文"
+  default_prompt: "用 $jd-decode 拆解这份 JD，输出岗位定位、P0 面试准备、核心任务、明确要求、加分项和面试时值得确认的问题；所有结论都回链 JD 原文。"

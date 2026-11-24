@@ -8,6 +8,7 @@
 |---|---|---|
 | [reference-request](reference-request/SKILL.md) · 推荐信请求邮件 | 根据真实经历撰写或修改中英文推荐信请求邮件，整理事实要点和跟进建议；可生成带来源的 HTML 批注展示 | 写作无需额外依赖；HTML 渲染需要 Python 3 标准库 |
 | [resume-fix](resume-fix/SKILL.md) · 简历精批 | 基于真实经历诊断简历，逐轮追问后生成保留原 PDF 的双段精批 PDF 与 PNG | Python 3 和 `PyMuPDF==1.26.5` |
+| [jd-decode](jd-decode/SKILL.md) · JD 拆解与面试准备 | 从 JD 提取核心职责、明确要求、加分项和可执行的 P0/P1/P2 面试准备清单；每条结论回链 JD 原文 | 无额外依赖 |
 
 ## 在 Codex 中安装
 
