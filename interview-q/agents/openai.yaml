@@ -1,0 +1,4 @@
+interface:
+  display_name: "面试预判与追问"
+  short_description: "结合简历、JD 与岗位类别生成问题和回答框架，交付脱敏的 HTML 面试准备报告"
+  default_prompt: "使用 $interview-q，根据我的简历和岗位 JD 预判问题、提供回答框架与追问，最后生成脱敏的 HTML 阅读页。"

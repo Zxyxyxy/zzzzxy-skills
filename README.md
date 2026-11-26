@@ -9,6 +9,7 @@
 | [reference-request](reference-request/SKILL.md) · 推荐信请求邮件 | 根据真实经历撰写或修改中英文推荐信请求邮件，整理事实要点和跟进建议；可生成带来源的 HTML 批注展示 | 写作无需额外依赖；HTML 渲染需要 Python 3 标准库 |
 | [resume-fix](resume-fix/SKILL.md) · 简历精批 | 基于真实经历诊断简历，逐轮追问后生成保留原 PDF 的双段精批 PDF 与 PNG | Python 3 和 `PyMuPDF==1.26.5` |
 | [jd-decode](jd-decode/SKILL.md) · JD 拆解与面试准备 | 合并 JD 中重叠的职责与要求，整理为去重、可执行的面试准备重点；区分明确条件、加分项和待确认问题 | 无额外依赖 |
+| [interview-q](interview-q/SKILL.md) · 面试预判与追问 | 结合简历、JD 和岗位类别常见题，给出回答框架与递进追问，最终生成脱敏的交互式 HTML 报告 | HTML 渲染需要 Python 3 标准库 |
 
 ## 在 Codex 中安装
 
@@ -31,6 +32,8 @@ git clone https://github.com/Zxyxyxy/codex-skills.git
 > 用 $resume-fix 帮我优化这份简历。先根据经历逐轮追问，再生成保留原 PDF 的精批稿；不要虚构事实。
 
 > 用 $jd-decode 拆解这份 JD，合并重复的职责与要求，按重要性列出具体准备重点，并标明明确条件、加分项和待确认问题。
+
+> 用 $interview-q 根据我的简历和岗位 JD 预判面试问题，补充岗位类别常见题，提供真实回答框架和追问，最后生成脱敏的 HTML 阅读报告。
 
 ## 运行批注示例
 
@@ -58,6 +61,20 @@ python3 -m venv .venv
 ```
 
 输出目录包含匿名合成简历的精批 PDF、PNG、QA 结果与 `review.json`。实际简历只在本地工作目录中处理，勿提交至仓库；完整输入规则、脱敏和校验要求见 [resume-fix/SKILL.md](resume-fix/SKILL.md)。
+
+## 生成面试准备 HTML
+
+使用 `interview-q` 分析材料后，将完整正文保存为 Markdown，再在仓库根目录执行：
+
+```bash
+python3 interview-q/scripts/render_report.py \
+  --input /absolute/path/report.md \
+  --output output/interview-report.html
+```
+
+生成的 HTML 可离线打开，包含模块目录、逐题折叠、全文阅读、打印 / 保存 PDF 和手机适配。保留 Markdown 作为正文；后续可按 Q01、S01、C01 等题号追问，要求更新报告时重新渲染 HTML。
+
+渲染脚本不调用模型，只展示已有分析。姓名、联系方式、个人主页和来源文件名应在生成正文时脱敏；脚本的规则检测不能代替人工检查。真实简历、JD 和个人报告不随 Skill 发布。完整流程见 [interview-q/SKILL.md](interview-q/SKILL.md)。
 
 ## 目录约定
 
