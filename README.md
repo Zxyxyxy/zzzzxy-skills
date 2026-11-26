@@ -8,7 +8,7 @@
 |---|---|---|
 | [reference-request](reference-request/SKILL.md) · 推荐信请求邮件 | 根据真实经历撰写或修改中英文推荐信请求邮件，整理事实要点和跟进建议；可生成带来源的 HTML 批注展示 | 写作无需额外依赖；HTML 渲染需要 Python 3 标准库 |
 | [resume-fix](resume-fix/SKILL.md) · 简历精批 | 基于真实经历诊断简历，逐轮追问后生成保留原 PDF 的双段精批 PDF 与 PNG | Python 3 和 `PyMuPDF==1.26.5` |
-| [jd-decode](jd-decode/SKILL.md) · JD 拆解与面试准备 | 从 JD 提取核心职责、明确要求、加分项和可执行的 P0/P1/P2 面试准备清单；每条结论回链 JD 原文 | 无额外依赖 |
+| [jd-decode](jd-decode/SKILL.md) · JD 拆解与面试准备 | 合并 JD 中重叠的职责与要求，整理为去重、可执行的面试准备重点；区分明确条件、加分项和待确认问题 | 无额外依赖 |
 
 ## 在 Codex 中安装
 
@@ -29,6 +29,8 @@ git clone https://github.com/Zxyxyxy/codex-skills.git
 > 用 $reference-request 为我的现有邮件添加官方指南批注，保留原文，并生成 HTML 和纯文本版本。
 
 > 用 $resume-fix 帮我优化这份简历。先根据经历逐轮追问，再生成保留原 PDF 的精批稿；不要虚构事实。
+
+> 用 $jd-decode 拆解这份 JD，合并重复的职责与要求，按重要性列出具体准备重点，并标明明确条件、加分项和待确认问题。
 
 ## 运行批注示例
 
