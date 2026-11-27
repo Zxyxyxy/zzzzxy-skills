@@ -10,6 +10,7 @@
 | [resume-fix](resume-fix/SKILL.md) · 简历精批 | 基于真实经历诊断简历，逐轮追问后生成保留原 PDF 的双段精批 PDF 与 PNG | Python 3 和 `PyMuPDF==1.26.5` |
 | [jd-decode](jd-decode/SKILL.md) · JD 拆解与面试准备 | 合并 JD 中重叠的职责与要求，整理为去重、可执行的面试准备重点；区分明确条件、加分项和待确认问题 | 无额外依赖 |
 | [interview-q](interview-q/SKILL.md) · 面试预判与追问 | 结合简历、JD 和岗位类别常见题，给出回答框架与递进追问，最终生成脱敏的交互式 HTML 报告 | HTML 渲染需要 Python 3 标准库 |
+| [mock-interview](mock-interview/SKILL.md) · 模拟面试与追问 | 从自我介绍、经历深挖到业务场景，一次一问并按回答追问；支持提示后重答，最终生成脱敏 HTML 报告与三色批注 | HTML 渲染需要 Python 3.9+ 标准库 |
 
 ## 在 Codex 中安装
 
@@ -34,6 +35,8 @@ git clone https://github.com/Zxyxyxy/codex-skills.git
 > 用 $jd-decode 拆解这份 JD，合并重复的职责与要求，按重要性列出具体准备重点，并标明明确条件、加分项和待确认问题。
 
 > 用 $interview-q 根据我的简历和岗位 JD 预判面试问题，补充岗位类别常见题，提供真实回答框架和追问，最后生成脱敏的 HTML 阅读报告。
+
+> 用 $mock-interview 结合我的简历和岗位 JD 模拟一次面试。从自我介绍开始，一次只问一道，等我回答后再追问；我说结束时，生成脱敏的 HTML 报告和三色批注。
 
 ## 运行批注示例
 
@@ -75,6 +78,20 @@ python3 interview-q/scripts/render_report.py \
 生成的 HTML 可离线打开，包含模块目录、逐题折叠、全文阅读、打印 / 保存 PDF 和手机适配。保留 Markdown 作为正文；后续可按 Q01、S01、C01 等题号追问，要求更新报告时重新渲染 HTML。
 
 渲染脚本不调用模型，只展示已有分析。姓名、联系方式、个人主页和来源文件名应在生成正文时脱敏；脚本的规则检测不能代替人工检查。真实简历、JD 和个人报告不随 Skill 发布。完整流程见 [interview-q/SKILL.md](interview-q/SKILL.md)。
+
+## 生成模拟面试 HTML
+
+使用 `mock-interview` 完成逐轮练习后，按[报告数据格式](mock-interview/references/report-format.md)整理实际问答、总结和批注，在仓库根目录执行：
+
+```bash
+python3 mock-interview/scripts/render_report.py \
+  --input /absolute/path/report.json \
+  --output output/mock-interview-report.html
+```
+
+同时生成 HTML 和同名 Markdown。报告先展示总结，随后可按阶段查看完整问答，支持折叠、全文阅读、打印和手机适配。绿色标亮点，橙色标待补信息，蓝色标改进建议；批注须引用记录中的原句，提示后回答单独标记。
+
+逐轮面试由宿主 AI 完成，脚本仅渲染已有记录。个人简历、JD 和练习记录保留在本地，不随 Skill 发布。完整流程见 [mock-interview/SKILL.md](mock-interview/SKILL.md)。
 
 ## 目录约定
 
