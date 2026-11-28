@@ -6,3 +6,10 @@ __pycache__/
 .env.*
 !.env.example
 /output/
+
+node_modules/
+*.zip
+profiles/
+browser-profile/
+candidate-profile.json
+application-queue.json

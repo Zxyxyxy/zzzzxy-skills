@@ -1,0 +1,7 @@
+# 在 resume-jd-match 目录执行：
+# cp scripts/env-example.txt .env
+# 编辑 .env，填入自己的百炼密钥，再执行 source .env。
+# 脚本只读取当前进程环境，不自动加载 .env。
+export DASHSCOPE_API_KEY=""
+export QWEN_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
+export QWEN_MODEL="qwen-plus"

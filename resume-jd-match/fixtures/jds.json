@@ -1,0 +1,41 @@
+[
+  {
+    "company": "示例公司 A",
+    "title": "推荐产品实习生",
+    "location": "示例地点",
+    "url": "https://example.com/jobs",
+    "requirements_raw": "1. 熟悉 SQL 数据分析。\n2. 能够将访谈内容整理成产品需求。\n3. 有推荐系统相关项目经验。",
+    "requirements": [
+      "熟悉 SQL 数据分析。",
+      "能够将访谈内容整理成产品需求。",
+      "有推荐系统相关项目经验。"
+    ],
+    "requirementCount": 3
+  },
+  {
+    "company": "示例公司 B",
+    "title": "后端开发工程师",
+    "location": "示例地点",
+    "url": "https://example.com/jobs",
+    "requirements_raw": "1. 熟悉 Java 与分布式系统。\n2. 具有三年后端开发经验。\n3. 能够维护高并发服务。",
+    "requirements": [
+      "熟悉 Java 与分布式系统。",
+      "具有三年后端开发经验。",
+      "能够维护高并发服务。"
+    ],
+    "requirementCount": 3
+  },
+  {
+    "company": "示例公司 C",
+    "title": "数据分析实习生",
+    "location": "示例地点",
+    "url": "https://example.com/jobs",
+    "requirements_raw": "1. 能够使用 Python 清洗数据。\n2. 理解 A/B 实验与指标口径。\n3. 能清楚表达分析结论。",
+    "requirements": [
+      "能够使用 Python 清洗数据。",
+      "理解 A/B 实验与指标口径。",
+      "能清楚表达分析结论。"
+    ],
+    "requirementCount": 3
+  }
+]

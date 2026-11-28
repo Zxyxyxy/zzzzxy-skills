@@ -2,6 +2,8 @@
 
 收集和维护可复用的 AI 工作流程。每个目录都是一个独立 Skill，包含 `SKILL.md` 以及必要的脚本、示例和参考资料。
 
+个人 Skill 发布账号：小红书 **流水的skill铺** · 小红书号 **5389663157**。
+
 ## 已收录
 
 | Skill | 用途 | 依赖 |
@@ -12,6 +14,9 @@
 | [interview-q](interview-q/SKILL.md) · 面试预判与追问 | 结合简历、JD 和岗位类别常见题，给出回答框架与递进追问，最终生成脱敏的交互式 HTML 报告 | HTML 渲染需要 Python 3 标准库 |
 | [mock-interview](mock-interview/SKILL.md) · 模拟面试与追问 | 从自我介绍、经历深挖到业务场景，一次一问并按回答追问；支持提示后重答，最终生成脱敏 HTML 报告与三色批注 | HTML 渲染需要 Python 3.9+ 标准库 |
 | [interview-review](interview-review/SKILL.md) · 面试复盘与下一轮准备 | 依据真实问题、回答回忆和面试结果逐题复盘；未通过时补强，通过时准备下一轮，等待结果时先做共同分析；输出完整 Markdown 与脱敏 HTML 报告 | HTML 渲染需要 Python 3.9+ 标准库 |
+| [resume-autofill-agent](resume-autofill-agent/SKILL.md) · 网申自动填写 | 使用本地候选人资料辅助填写招聘网站表单，支持浏览器连接、队列和填写前后核对 | Python 3；浏览器桥接需要 Node.js、Playwright Core 和 Chrome / Edge |
+| [ux-writer](ux-writer/SKILL.md) · 界面文案设计与审查 | 从产品语气、术语和信息层级到逐屏微文案，检查按钮、空态、报错与提示 | 无额外依赖 |
+| [resume-jd-match](resume-jd-match/SKILL.md) · 简历与 JD 匹配 | 确定性拆分要求、验证简历原文证据，并按规则计算匹配结论 | Python 3 标准库；实际模型评估需要自己的百炼配置 |
 
 ## 在 Codex 中安装
 
@@ -122,3 +127,18 @@ reference-request/
 ```
 
 新增 Skill 时使用独立目录，写明输入、步骤、输出和必要依赖。公开示例应使用匿名或合成材料；个人输入、邮件成稿、密钥和运行日志不进入仓库。
+
+## 新收录 Skill 的离线检查
+
+在仓库根目录运行，不会登录账号、提交网申或调用付费模型：
+
+```bash
+node --test resume-autofill-agent/scripts/browser-bridge/tests/profile_resolver.test.js
+python3 -m unittest discover -s resume-autofill-agent/scripts/tests
+python3 resume-jd-match/scripts/run_eval.py --dry
+python3 -m unittest discover -s resume-jd-match/scripts/tests
+```
+
+网申浏览器桥接的依赖在 `resume-autofill-agent/scripts/browser-bridge` 中执行 `npm ci` 安装。候选人资料、浏览器登录状态和申请结果保存在本地；打包脚本仅收录维护的源码白名单，新增源码需同步更新该名单。
+
+这三个目录从已维护的个人本地 Skill 整理发布，并修正了机器路径与配置示例。`resume-autofill-agent` 保留原有 MIT 许可；其他目录的许可和来源以各自文件为准，本仓库不替其添加统一授权。`resume-jd-match/fixtures` 全部为本次编写的虚构测试材料，不包含真实简历。离线检查不能证明网站适配、真实投递或模型判断效果。

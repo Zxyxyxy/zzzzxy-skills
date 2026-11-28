@@ -1,0 +1,4 @@
+interface:
+  display_name: "Resume Autofill Agent / 简历自动填写 Agent"
+  short_description: "Organize verified information and fill application forms"
+  default_prompt: "Use $resume-autofill-agent to connect to or open a controllable browser first, inspect existing tabs, fill the open application from verified information, save a reviewed draft, and stop before final submission / 使用 $resume-autofill-agent 先连接或打开可控浏览器并检查已有标签页，再根据已核验资料填写当前网申、保存已检查草稿，并在最终提交前停下。"

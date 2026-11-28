@@ -1,0 +1,3 @@
+interface:
+  display_name: "Resume JD Match"
+  short_description: "Evaluate resume fit against JD requirements with validated evidence and rule-derived scoring"
