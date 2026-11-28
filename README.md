@@ -11,17 +11,18 @@
 | [jd-decode](jd-decode/SKILL.md) · JD 拆解与面试准备 | 合并 JD 中重叠的职责与要求，整理为去重、可执行的面试准备重点；区分明确条件、加分项和待确认问题 | 无额外依赖 |
 | [interview-q](interview-q/SKILL.md) · 面试预判与追问 | 结合简历、JD 和岗位类别常见题，给出回答框架与递进追问，最终生成脱敏的交互式 HTML 报告 | HTML 渲染需要 Python 3 标准库 |
 | [mock-interview](mock-interview/SKILL.md) · 模拟面试与追问 | 从自我介绍、经历深挖到业务场景，一次一问并按回答追问；支持提示后重答，最终生成脱敏 HTML 报告与三色批注 | HTML 渲染需要 Python 3.9+ 标准库 |
+| [interview-review](interview-review/SKILL.md) · 面试复盘与下一轮准备 | 依据真实问题、回答回忆和面试结果逐题复盘；未通过时补强，通过时准备下一轮，等待结果时先做共同分析；输出完整 Markdown 与脱敏 HTML 报告 | HTML 渲染需要 Python 3.9+ 标准库 |
 
 ## 在 Codex 中安装
 
 可以直接告诉 Codex：
 
-> 请从 https://github.com/Zxyxyxy/codex-skills 安装 resume-fix，作为我的个人 skill。
+> 请从 https://github.com/Zxyxyxy/zzzzxy-skills 安装 resume-fix，作为我的个人 skill。
 
 也可以先克隆本仓库，再将需要的 Skill 目录导入所用工具的个人技能目录。只需安装具体 Skill 文件夹，无需把整个仓库作为一个 Skill 安装。
 
 ```bash
-git clone https://github.com/Zxyxyxy/codex-skills.git
+git clone https://github.com/Zxyxyxy/zzzzxy-skills.git
 ```
 
 安装后可以这样调用：
@@ -37,6 +38,8 @@ git clone https://github.com/Zxyxyxy/codex-skills.git
 > 用 $interview-q 根据我的简历和岗位 JD 预判面试问题，补充岗位类别常见题，提供真实回答框架和追问，最后生成脱敏的 HTML 阅读报告。
 
 > 用 $mock-interview 结合我的简历和岗位 JD 模拟一次面试。从自我介绍开始，一次只问一道，等我回答后再追问；我说结束时，生成脱敏的 HTML 报告和三色批注。
+
+> 用 $interview-review 复盘我的真实面试问题和回答思路。我会告诉你岗位、轮次和结果；未通过时给出补强方案，通过时帮我准备下一轮，最后生成脱敏的 HTML 报告。
 
 ## 运行批注示例
 
@@ -92,6 +95,20 @@ python3 mock-interview/scripts/render_report.py \
 同时生成 HTML 和同名 Markdown。报告先展示总结，随后可按阶段查看完整问答，支持折叠、全文阅读、打印和手机适配。绿色标亮点，橙色标待补信息，蓝色标改进建议；批注须引用记录中的原句，提示后回答单独标记。
 
 逐轮面试由宿主 AI 完成，脚本仅渲染已有记录。个人简历、JD 和练习记录保留在本地，不随 Skill 发布。完整流程见 [mock-interview/SKILL.md](mock-interview/SKILL.md)。
+
+## 生成真实面试复盘 HTML
+
+使用 `interview-review` 分析真实面试记录后，将完整正文保存为 Markdown，再在仓库根目录执行：
+
+```bash
+python3 interview-review/scripts/render_report.py \
+  --input /absolute/path/review.md \
+  --output output/interview-review.html
+```
+
+同时生成 HTML 和 `output/interview-review-脱敏.md`。报告包含本场结论、完整问答、逐题分析、结果对应的行动方案和待补材料，支持折叠、全文阅读、打印与手机适配。绿色标亮点，橙色标待补，蓝色标调整建议；引用应来自实际记录。
+
+已通过时准备下一轮的递进追问和真实证据，未通过时给出优先补强项，结果未知时先做共同复盘。不预测通过概率，不把回忆遗漏等同于现场没答，也不把推断写成确定淘汰原因。可重复传入 `--redact '需要隐藏的文字'` 补充脱敏项，交付前仍需人工核对。个人面试记录、简历、JD 和报告不随 Skill 发布。完整流程见 [interview-review/SKILL.md](interview-review/SKILL.md)。
 
 ## 目录约定
 

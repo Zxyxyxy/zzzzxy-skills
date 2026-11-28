@@ -1,0 +1,4 @@
+interface:
+  display_name: "面试复盘与下一轮准备"
+  short_description: "结合真实面试问答和结果复盘，未通过时补强，通过时准备下一轮，输出完整 HTML 报告"
+  default_prompt: "使用 $interview-review，分析我的真实面试问题和回答回忆，根据面试结果给出补强或下一轮准备方案，并生成脱敏 HTML 报告。"
